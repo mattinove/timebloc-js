@@ -2,7 +2,6 @@ import { BlocType, Timebloc, getCurrentBloc, getTimeBlocs } from '../utils';
 import { getBimesters, getTrimesters, getQuarters, getSemester } from '../index';
 
 describe('getBlocs', () => {
-
   test('getBimesters', () => {
     const year = 2022;
     const bimesters = getBimesters();
@@ -14,7 +13,6 @@ describe('getBlocs', () => {
 
     expect(otherBimesters).toBeInstanceOf(Array);
     expect(otherBimesters.length).toBe(6);
-
   });
 
   test('getTrimesters', () => {
@@ -41,14 +39,12 @@ describe('getBlocs', () => {
 
     expect(otherQuarters).toBeInstanceOf(Array);
     expect(otherQuarters.length).toBe(3);
-
   });
 
   test('getSemester', () => {
     const year = 2019;
     const otherSemester = getSemester(year);
     const semester = getSemester();
-    
 
     // standard checks
     expect(semester).toBeInstanceOf(Array);
@@ -56,8 +52,5 @@ describe('getBlocs', () => {
 
     expect(otherSemester).toBeInstanceOf(Array);
     expect(otherSemester.length).toBe(2);
-
   });
-
-  
-})
+});
