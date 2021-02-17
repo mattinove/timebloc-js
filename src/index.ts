@@ -27,3 +27,9 @@ export const getCurrentQuarter = () => {
 export const getCurrentSemester = () => {
   return getCurrentBloc(BlocType.semester);
 };
+
+
+console.log(getCurrentBimester());
+console.log(getCurrentTrimester());
+console.log(getCurrentQuarter());
+console.log(getCurrentSemester());

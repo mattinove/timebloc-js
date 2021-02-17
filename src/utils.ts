@@ -57,6 +57,6 @@ export const getTimeBlocs = (year?: number, blocType?: BlocType) => {
   return timeBlocs;
 };
 export const getCurrentBloc = (blocType?: BlocType) => {
-  const blocs = getTimeBlocs(blocType);
-  return blocs.find((b) => b.isCurrent) || -1;
+  const blocs = getTimeBlocs(undefined, blocType);
+  return blocs.find(b => b.isCurrent) || -1;
 };
