@@ -1,10 +1,14 @@
 # timebloc-js
 ## A simple library to handle bimesters, trimesters, quarters and semesters.
 
-### 1. Getting back time bloc list.
+### 1. Getting back time bloc list (like trimesters).
 ```
 const { getBimesters, getTrimesters, getQuarters, getSemesters } = require("timebloc-js");
-const trimesters = getTrimesters() //for the current year, getTrimesters(2020) for a specific year.
+
+// current year
+const trimesters = getTrimesters(); 
+// custom year
+const otherYearTrimesters = getTrimesters(2018);
 ```
 
 #### Sample response
@@ -41,7 +45,7 @@ const { getCurrentBimester, getCurrentTrimester, getCurrentQuarter, getCurrentSe
 const currentTrimester = getCurrentTrimester()
 ```
 
-### 3. Sample response
+### Sample response
 ```
 {
   index: 1,
