@@ -47,7 +47,7 @@ const { getCurrentBimester, getCurrentTrimester, getCurrentQuarter, getCurrentSe
 const currentTrimester = getCurrentTrimester()
 ```
 
-### Sample response
+#### Sample response
 ```
 {
   index: 1,
