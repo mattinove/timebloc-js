@@ -6,14 +6,14 @@ export enum BlocType {
 }
 export interface Timebloc {
   index: number;
-  utcStart: string;
-  utcEnd: string;
+  utcStart: Date;
+  utcEnd: Date;
   isCurrent: boolean;
 }
 export const range = (start: number, end: number, length = end - start) => {
   return Array.from({ length }, (_, i) => start + i);
 };
-export const getBlocIndex = (blocType?: BlocType) => {
+export const getBlocIndex = (blocType: BlocType) => {
   switch (blocType) {
     case BlocType.bimester:
       return 1;
@@ -27,9 +27,7 @@ export const getBlocIndex = (blocType?: BlocType) => {
       return 2;
   }
 };
-export const getTimeBlocs = (year?: number, blocType?: BlocType) => {
-  const tmpYear = (year) ? year : new Date().getFullYear();
-
+export const getTimeBlocs = (year: number, blocType: BlocType) => {
   const timeBlocs: Timebloc[] = [];
   const typeIndex: number = getBlocIndex(blocType);
   let nextIndex: number = 0;
@@ -37,8 +35,8 @@ export const getTimeBlocs = (year?: number, blocType?: BlocType) => {
 
   range(0, 11).forEach((month) => {
     if (month === nextIndex) {
-      const utcStart = new Date(Date.UTC(tmpYear, month, 1));
-      const utcEnd = new Date(Date.UTC(tmpYear, month + (typeIndex + 1), 0, 23, 59, 59, 999));
+      const utcStart = new Date(Date.UTC(year, month, 1));
+      const utcEnd = new Date(Date.UTC(year, month + (typeIndex + 1), 0, 23, 59, 59, 999));
       const index = bloc;
 
       const current = new Date();
@@ -46,8 +44,8 @@ export const getTimeBlocs = (year?: number, blocType?: BlocType) => {
 
       timeBlocs.push({
         index,
-        utcStart: utcStart.toISOString(),
-        utcEnd: utcEnd.toISOString(),
+        utcStart: utcStart,
+        utcEnd: utcEnd,
         isCurrent,
       });
       nextIndex += typeIndex + 1;
@@ -56,7 +54,11 @@ export const getTimeBlocs = (year?: number, blocType?: BlocType) => {
   });
   return timeBlocs;
 };
-export const getCurrentBloc = (blocType?: BlocType) => {
-  const blocs = getTimeBlocs(undefined, blocType);
-  return blocs.find(b => b.isCurrent) || -1;
+
+export const getCurrentBloc = (year: number, blocType: BlocType) => {
+  const blocs = getTimeBlocs(year, blocType);
+  const currentBlocs = getTimeBlocs(new Date().getFullYear(), blocType);
+  const current = currentBlocs.find(b => b.isCurrent);
+  const result = (current) ? blocs.find(b => b.index === current.index) : undefined;
+  return result;
 };
