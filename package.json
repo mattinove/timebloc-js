@@ -1,6 +1,6 @@
 {
   "name": "timebloc-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A very nice library to get easy and simple predefined blocs of time.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
