@@ -7,7 +7,7 @@ import { BlocType, getTimeBlocs, getCurrentBloc, Timebloc } from './utils';
  * @param ref A date or a number that represent the time reference.
  */
 export function getBimesters(ref?: number | Date): Timebloc[] {
-  let year: number = (ref) ? (typeof (ref) === 'number') ? ref : ref.getFullYear() : new Date().getFullYear();
+  const year: number = (ref) ? (typeof (ref) === 'number') ? ref : ref.getFullYear() : new Date().getFullYear();
   return getTimeBlocs(year, BlocType.bimester);
 }
 
@@ -16,7 +16,7 @@ export function getBimesters(ref?: number | Date): Timebloc[] {
  * @param ref A date or a number that represent the time reference.
  */
 export function getTrimesters(ref?: number | Date): Timebloc[] {
-  let year: number = (ref) ? (typeof (ref) === 'number') ? ref : ref.getFullYear() : new Date().getFullYear();
+  const year: number = (ref) ? (typeof (ref) === 'number') ? ref : ref.getFullYear() : new Date().getFullYear();
   return getTimeBlocs(year, BlocType.trimester);
 }
 
@@ -25,7 +25,7 @@ export function getTrimesters(ref?: number | Date): Timebloc[] {
  * @param ref A date or a number that represent the time reference.
  */
 export function getQuarters(ref?: number | Date): Timebloc[] {
-  let year: number = (ref) ? (typeof (ref) === 'number') ? ref : ref.getFullYear() : new Date().getFullYear();
+  const year: number = (ref) ? (typeof (ref) === 'number') ? ref : ref.getFullYear() : new Date().getFullYear();
   return getTimeBlocs(year, BlocType.quarter);
 }
 
@@ -34,7 +34,7 @@ export function getQuarters(ref?: number | Date): Timebloc[] {
  * @param ref A date or a number that represent the time reference.
  */
 export function getSemesters(ref?: number | Date): Timebloc[] {
-  let year: number = (ref) ? (typeof (ref) === 'number') ? ref : ref.getFullYear() : new Date().getFullYear();
+  const year: number = (ref) ? (typeof (ref) === 'number') ? ref : ref.getFullYear() : new Date().getFullYear();
   return getTimeBlocs(year, BlocType.semester);
 }
 
@@ -44,7 +44,7 @@ export function getSemesters(ref?: number | Date): Timebloc[] {
  * Returns the current bimester
  */
 export function getCurrentBimester(): Timebloc | undefined {
-  let year: number = new Date().getFullYear();
+  const year: number = new Date().getFullYear();
   return getCurrentBloc(year, BlocType.bimester);
 };
 
@@ -52,7 +52,7 @@ export function getCurrentBimester(): Timebloc | undefined {
  * Returns the current trimester
  */
 export function getCurrentTrimester(): Timebloc | undefined {
-  let year: number = new Date().getFullYear();
+  const year: number = new Date().getFullYear();
   return getCurrentBloc(year, BlocType.trimester);
 };
 
@@ -60,7 +60,7 @@ export function getCurrentTrimester(): Timebloc | undefined {
  * Returns the current quarter
  */
 export function getCurrentQuarter(): Timebloc | undefined {
-  let year: number = new Date().getFullYear();
+  const year: number = new Date().getFullYear();
   return getCurrentBloc(year, BlocType.quarter);
 };
 
@@ -68,7 +68,7 @@ export function getCurrentQuarter(): Timebloc | undefined {
  * Returns the current semester
  */
 export function getCurrentSemester(): Timebloc | undefined {
-  let year: number = new Date().getFullYear();
+  const year: number = new Date().getFullYear();
   return getCurrentBloc(year, BlocType.semester);
 };
 

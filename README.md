@@ -19,7 +19,9 @@ What is a timebloc? A timebloc is a bimester, trimester, quarter or semester.
 - Getting back current timebloc.
 - Getting back a specific timebloc of a year.
 
-## Getting back timeblocs list (like trimesters, querters etc).
+## Samples
+
+### Getting back timebloc list (like trimesters, querters etc)
 ```js
 
 const { getTrimesters } = require("timebloc-js");
@@ -65,7 +67,7 @@ const trimestersByDate = getTrimesters(theDate);
 ]
 ```
 
-## Getting back current time bloc.
+### Getting back current time bloc
 ```js
 const { getCurrentTrimester } = require("timebloc-js");
 const currentTrimester = getCurrentTrimester()
@@ -80,7 +82,8 @@ const currentTrimester = getCurrentTrimester()
   isCurrent: true
 }
 ```
-## Getting back a specific timebloc of a year.
+
+### Getting back a specific timebloc of a year.
 ```js
 const { getTrimester } = require("timebloc-js");
 
