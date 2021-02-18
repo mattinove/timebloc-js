@@ -44,8 +44,8 @@ export const getTimeBlocs = (year: number, blocType: BlocType) => {
 
       timeBlocs.push({
         index,
-        utcStart: utcStart,
-        utcEnd: utcEnd,
+        utcStart,
+        utcEnd,
         isCurrent,
       });
       nextIndex += typeIndex + 1;
